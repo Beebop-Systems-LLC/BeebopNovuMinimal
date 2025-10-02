@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-android34</TargetFramework>
+    <Nullable>enable</Nullable>
+    <DefineConstants>ANDROID;</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.3.6" />
+    <PackageReference Include="Avalonia.Android" Version="11.3.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeebopNovuMinimal\BeebopNovuMinimal.csproj" />
+  </ItemGroup>
+	<ItemGroup>
+		<!-- Exclude base App files from Android compilation (they're in the referenced DLL) -->
+		<Compile Remove="..\BeebopNovuMinimal\App.axaml.cs" />
+		<AvaloniaXaml Remove="..\BeebopNovuMinimal\App.axaml" />
+	</ItemGroup>
+</Project>
